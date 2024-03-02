@@ -1,0 +1,26 @@
+{
+  "include": [
+    "src"
+  ],
+  "exclude": [
+    "dist"
+  ],
+  "compilerOptions": {
+    "incremental": true,
+    "target": "ES5",
+    "module": "ESNext",
+    "lib": [
+      "ES2021"
+    ],
+    "jsx": "react",
+    "declaration": true,
+    "noEmit": true,
+    "downlevelIteration": false,
+    "strict": true,
+    "exactOptionalPropertyTypes": true,
+    "moduleResolution": "node",
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "esModuleInterop": true
+  }
+}

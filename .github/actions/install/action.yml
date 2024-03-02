@@ -1,0 +1,42 @@
+name: 'Install Dependencies'
+description: 'This action installs and caches dependencies efficiently.'
+
+inputs:
+  npm-token:
+    description: The token for registery
+    required: true
+
+runs:
+  using: 'composite'
+  steps:
+    - name: Checkout the Code
+      uses: actions/checkout@v4
+      with:
+        persist-credentials: false
+        fetch-depth: 0
+
+    - name: Setup NodeJS Environment
+      uses: actions/setup-node@v4
+      with:
+        node-version-file: '.nvmrc'
+
+    - name: Enable corepack
+      shell: bash
+      run: corepack enable
+
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      shell: bash
+      run: echo "dir=$(yarn config get cacheFolder)" >> $GITHUB_OUTPUT
+
+    - uses: actions/cache@v4
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+
+    - name: Install Dependencies
+      shell: bash
+      run: yarn install --immutable

@@ -13,14 +13,14 @@ const config = {
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
-  url: 'https://bomonti.dev',
+  url: 'https://lebleb.github.io/bomonti/',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'lebleb/bomonti', // Usually your GitHub org/user name.
+  organizationName: 'lebleb', // Usually your GitHub org/user name.
   projectName: 'bomonti', // Usually your repo name.
 
   onBrokenLinks: 'throw',
@@ -62,7 +62,7 @@ const config = {
       navbar: {
         title: 'Bomonti',
         logo: {
-          alt: 'My Site Logo',
+          alt: 'Bomonti Logo',
           src: 'img/logo.svg',
         },
         items: [

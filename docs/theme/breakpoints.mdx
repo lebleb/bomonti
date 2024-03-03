@@ -1,0 +1,105 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Breakpoints
+
+
+## Theme
+
+<Tabs groupId="lang">
+  <TabItem value="javascript" label="Javascript" >
+    ```javascript title='theme.js'
+    export const theme = {
+      breakpoints: {mobile: 55},
+      color: {red: "#ff0000", red2: '#ff0000'},
+      padding: 50,
+      font: {
+        family: 'Arial',
+        size: 16,
+      },
+    };
+    ```
+  </TabItem>
+  <TabItem value="typescript" label="Typescript" default>
+    ```typescript title='theme.ts'
+    export const theme = {
+      breakpoints: {mobile: 55},
+      color: {red: "#ff0000", red2: '#ff0000'},
+      padding: 50,
+      font: {
+        family: 'Arial',
+        size: 16,
+      },
+    };
+
+    export type Theme = typeof theme;
+
+    declare module 'bomonti' {
+      export interface DefaultTheme extends Theme {}
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+## Provider
+
+```javascript
+import { ThemeProvider } from 'bomonti';
+import { theme } from './theme.mdx';
+
+function App() {
+  return (
+      <ThemeProvider value={theme}>
+        ...
+      </ThemeProvider>
+  );
+}
+```
+
+## Use value from theme
+
+```javascript title='theme.ts'
+import { Text, View } from 'react-native';
+import styled from 'bomonti';
+
+export default function TabOneScreen() {
+  return (
+    <Container>
+      <Title>Tab One</Title>
+      <Seperator />
+      <Content>...</Content>
+    </Container>
+  );
+}
+
+const Container = styled(View)(({ theme }) => ({
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: theme.color.red
+}));
+
+const Title = styled(Text)({
+  fontSize: 20,
+  fontWeight: 'bold'
+});
+
+const Seperator = styled(Text)({
+  marginVertical: 30,
+  height: 1,
+  width: '80%',
+  backgroundColor: ({ theme }) => theme.color.red2
+});
+
+const Content = styled(Text)({
+  marginVertical: 30,
+  height: 1,
+  width: '80%',
+  backgroundColor: ({ theme }) => theme.color.red2
+});
+
+```

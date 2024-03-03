@@ -1,0 +1,105 @@
+---
+sidebar_position: 1
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Theming
+
+
+## Theme
+
+<Tabs groupId="lang">
+  <TabItem value="javascript" label="Javascript" >
+    ```javascript title='theme.js'
+    export const theme = {
+      color: {primary: "#F8D210", secondary: '#F51720'},
+      padding: (index) => (index * 2) + 'px',
+      font: {
+        title: {
+          family: 'Arial',
+          size: 16,
+        }
+      },
+    };
+    ```
+  </TabItem>
+  <TabItem value="typescript" label="Typescript" default>
+    ```typescript title='theme.ts'
+    export const theme = {
+      color: {primary: "#F8D210", secondary: '#F51720'},
+      padding: (index) => (index * 2) + 'px',
+      font: {
+        title: {
+          family: 'Arial',
+          size: 16,
+        }
+      },
+    };
+
+    export type Theme = typeof theme;
+
+    declare module 'bomonti' {
+      export interface DefaultTheme extends Theme {}
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+## Provider
+
+```javascript
+import { ThemeProvider } from 'bomonti';
+import { theme } from './theme.mdx';
+
+function App() {
+  return (
+      <ThemeProvider value={theme}>
+        ...
+      </ThemeProvider>
+  );
+}
+```
+
+## Use value from theme
+
+```javascript title='theme.ts'
+import { Text, View } from 'react-native';
+import styled from 'bomonti';
+
+export default function TabOneScreen() {
+  return (
+    <Container>
+      <Title>Tab One</Title>
+      <Seperator />
+      <Content>...</Content>
+    </Container>
+  );
+}
+
+const Container = styled(View)(({ theme }) => ({
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+  backgroundColor: theme.color.primary
+}));
+
+const Title = styled(Text)({
+  fontSize: 20,
+  fontWeight: 'bold',
+  color: ({theme}) => theme.color.secondary
+});
+
+const Seperator = styled(Text)({
+  marginVertical: 30,
+  height: 1,
+  width: '80%',
+  color: ({theme}) => theme.color.secondary
+});
+
+const Content = styled(Text)({
+  color: ({theme}) => theme.color.secondary
+});
+
+```

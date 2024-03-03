@@ -1,6 +1,6 @@
 {
   "name": "bomonti",
-  "version": "2.0.0",
+  "version": "1.0.0",
   "source": "./src/index.ts",
   "main": "./dist/bomonti.js",
   "module": "./dist/module.js",
@@ -22,7 +22,7 @@
     "@parcel/transformer-typescript-types": "2.11.0",
     "@types/react": "18.2.55",
     "eslint": "8.56.0",
-    "eslint-config-bomonti": "2.0.0",
+    "eslint-config-bomonti": "1.0.0",
     "parcel": "^2.11.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",

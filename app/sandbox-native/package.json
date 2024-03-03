@@ -1,7 +1,7 @@
 {
   "name": "sandbox-native",
   "main": "expo-router/entry",
-  "version": "1.0.3",
+  "version": "1.0.0",
   "private": true,
   "scripts": {
     "start": "expo start",
@@ -16,7 +16,7 @@
   "dependencies": {
     "@expo/vector-icons": "^14.0.0",
     "@react-navigation/native": "^6.0.2",
-    "bomonti": "2.0.0",
+    "bomonti": "1.0.0",
     "expo": "~50.0.6",
     "expo-font": "~11.10.2",
     "expo-linking": "~6.2.2",

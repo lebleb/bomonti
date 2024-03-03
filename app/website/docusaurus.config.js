@@ -44,7 +44,7 @@ const config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl:
-            'https://github.com/lebleb/bomonti/tree/main/docs/',
+            'https://github.com/lebleb/bomonti/blob/main/docs/',
           path: '../../docs',
         },
         theme: {

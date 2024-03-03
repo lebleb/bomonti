@@ -15,7 +15,9 @@
     "dev:pkg": "yarn workspaces foreach -Rpti --from 'packages/**' run dev",
     "sanbox:native": "yarn workspace sandbox-native run ios",
     "lint": "eslint \"**/*.{js,jsx,ts,tsx}\"",
-    "release": "yarn build"
+    "release": "yarn build",
+    "changeset:version": "yarn changeset version && yarn install --no-immutable && git add yarn.lock",
+    "changeset:release": "yarn build && changeset publish"
   },
   "devDependencies": {
     "@parcel/packager-ts": "2.11.0",

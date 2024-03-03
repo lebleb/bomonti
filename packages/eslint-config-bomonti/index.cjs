@@ -1,3 +1,4 @@
+// v2
 module.exports = {
   extends: [
     'plugin:unicorn/recommended',

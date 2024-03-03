@@ -1,3 +1,4 @@
+// v2
 export type * from './global';
 
 export { useTheme } from './hooks/useTheme';

@@ -1,0 +1,77 @@
+---
+sidebar_position: 2
+---
+
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+# Installation
+
+Let's discover **Bomonti in less than 5 minutes**.
+
+## Install
+
+<Tabs>
+  <TabItem value="yarn" label="Yarn" default>
+    ```bash
+    yarn add bomonti
+    ```
+  </TabItem>
+  <TabItem value="npm" label="Npm">
+    ```bash
+    npm install bomonti
+    ```
+  </TabItem>
+</Tabs>
+
+## Theme
+
+<Tabs groupId="lang">
+  <TabItem value="javascript" label="Javascript" >
+    ```javascript title='theme.js'
+    export const theme = {
+      breakpoints: {mobile: 55},
+      color: {red: "#ff0000", red2: '#ff0000'},
+      padding: 50,
+      font: {
+        family: 'Arial',
+        size: 16,
+      },
+    };
+    ```
+  </TabItem>
+  <TabItem value="typescript" label="Typescript" default>
+    ```typescript title='theme.ts'
+    export const theme = {
+      breakpoints: {mobile: 55},
+      color: {red: "#ff0000", red2: '#ff0000'},
+      padding: 50,
+      font: {
+        family: 'Arial',
+        size: 16,
+      },
+    };
+
+    export type Theme = typeof theme;
+
+    declare module 'bomonti' {
+      export interface DefaultTheme extends Theme {}
+    }
+    ```
+  </TabItem>
+</Tabs>
+
+## Provider
+
+```javascript
+import { ThemeProvider } from 'bomonti';
+import { theme } from './theme';
+
+function App() {
+  return (
+      <ThemeProvider value={theme}>
+        ...
+      </ThemeProvider>
+  );
+}
+```

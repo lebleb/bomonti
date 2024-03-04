@@ -44,19 +44,21 @@ export function styled<P>(Component: ComponentType<P>) {
   type HasStyleProperty<T> = T extends { style?: infer U } ? U : never;
   type StyleArgumentItem = StyledObjectWithMediaQuery<HasStyleProperty<P>>;
 
-  type StyleArgument =
+  type StyleArgument<K> =
     | StyleArgumentItem
-    | (({ theme }: { theme: DefaultTheme }) => StyleArgumentItem);
+    | (({ theme }: { theme: DefaultTheme } & K) => StyleArgumentItem);
 
-  return (style: StyleArgument) => {
-    type PropertiesWithStyle = P & { style?: HasStyleProperty<P> };
+  return function <K>(style: StyleArgument<K>) {
+    type PropertiesWithStyle = P & { style?: HasStyleProperty<P> } & K;
 
     return function StyledComponent(properties: PropertiesWithStyle) {
       const { theme } = useTheme();
       let componentStyleSheet = {};
       if (style) {
         const rawStyleObject: StyleArgumentItem =
-          typeof style === 'function' ? style({ theme: theme }) : style;
+          typeof style === 'function'
+            ? style({ ...properties, theme: theme })
+            : style;
         componentStyleSheet = prepareStyled(rawStyleObject, theme);
       }
 

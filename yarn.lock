@@ -7632,7 +7632,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"bomonti@npm:1.0.0, bomonti@workspace:packages/bomonti":
+"bomonti@npm:2.0.0, bomonti@workspace:packages/bomonti":
   version: 0.0.0-use.local
   resolution: "bomonti@workspace:packages/bomonti"
   dependencies:
@@ -19445,7 +19445,7 @@ __metadata:
     "@expo/vector-icons": "npm:^14.0.0"
     "@react-navigation/native": "npm:^6.0.2"
     "@types/react": "npm:18.2.55"
-    bomonti: "npm:1.0.0"
+    bomonti: "npm:2.0.0"
     expo: "npm:~50.0.6"
     expo-font: "npm:~11.10.2"
     expo-linking: "npm:~6.2.2"

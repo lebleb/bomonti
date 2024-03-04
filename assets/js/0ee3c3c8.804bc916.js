@@ -1,1 +1,0 @@
-"use strict";(self.webpackChunkwebsite=self.webpackChunkwebsite||[]).push([[77],{53:e=>{e.exports=JSON.parse('{"title":"Theme","description":"Theme","slug":"/category/theme","permalink":"/bomonti/docs/category/theme","navigation":{"previous":{"title":"Installation","permalink":"/bomonti/docs/installation"},"next":{"title":"Theming","permalink":"/bomonti/docs/theme/"}}}')}}]);

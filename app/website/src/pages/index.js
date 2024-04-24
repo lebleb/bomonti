@@ -20,7 +20,7 @@ function HomepageHeader() {
           <Link
             className="button button--secondary button--lg"
             to="/docs/intro">
-            Bomonti Tutorial
+            Get Started
           </Link>
         </div>
       </div>
@@ -30,12 +30,21 @@ function HomepageHeader() {
 
 export default function Home() {
   const {siteConfig} = useDocusaurusContext();
+  const reverse = true
   return (
     <Layout
       title={`Hello from ${siteConfig.title}`}
       description="Description will go into a meta tag in <head />">
       <HomepageHeader />
       <main>
+        <div className={`TwoColumns ${reverse ? 'reverse' : ''}`}>
+          <div className={`column first ${reverse ? 'right' : 'left'}`}>
+         a
+          </div>
+          <div className={`column last ${reverse ? 'left' : 'right'}`}>
+           b
+          </div>
+        </div>
         <HomepageFeatures />
       </main>
     </Layout>

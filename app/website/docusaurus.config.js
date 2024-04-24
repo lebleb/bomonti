@@ -9,7 +9,7 @@ import {themes as prismThemes} from 'prism-react-renderer';
 /** @type {import('@docusaurus/types').Config} */
 const config = {
   title: 'Bomonti',
-  tagline: 'Bomonti StyleSheet',
+  tagline: 'A lightweight StyleSheet for Components',
   favicon: 'img/favicon.ico',
 
   // Set the production url of your site here
